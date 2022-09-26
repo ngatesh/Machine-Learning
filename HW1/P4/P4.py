@@ -54,7 +54,7 @@ def polyGen(x, deg):
 
 # Fits the generated curve+noise to a polynomial of the given degree.
 # reg = regression type ('lasso' and 'ridge' supported, default = 'none').
-# ll = regression coefficient (default = 1).
+# ll = regression coefficient (default = 0.0001).
 def polyFit(deg, reg='none', ll=0.0001):
     (X, w) = polyGen(x_train, deg)               # initialize polynomial x, and w.
     alpha = 0.01                                 # Learning rate.
@@ -72,10 +72,10 @@ def polyFit(deg, reg='none', ll=0.0001):
 
         w = w - alpha*grad                       # Update w
 
-    # plt.scatter(x_train, z_train)
-    # plt.scatter(x_train, w.dot(X))
-    # plt.title(f"M={deg}")
-    # plt.show()
+    plt.scatter(x, z)
+    plt.scatter(x, w.dot(polyGen(x, deg)[0]))
+    plt.title(f"M={deg}")
+    plt.show()
 
     # Calculate RMS error for training set.
     errorTrain = z_train - w.dot(X)
@@ -112,5 +112,3 @@ plt.ylabel("RMS Error")
 plt.title("RMS Error vs. Polynomial Order")
 plt.legend(["Training", "Testing"])
 plt.show()
-
-
