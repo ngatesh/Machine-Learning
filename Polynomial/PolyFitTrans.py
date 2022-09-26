@@ -3,16 +3,15 @@ from matplotlib import pyplot as plt
 
 x0 = np.ones([1, 100])
 x1 = np.array([np.arange(1, 21, 0.2)])
-x2 = x1**2
 
-X = np.concatenate((x0, x1, x2), axis=0)
-W = np.array([[20, 5, -1]])
+X = np.concatenate((x0, x1), axis=0)
+W = np.array([[20, 5]])
 Y = W.dot(X) + np.random.rand(1, 100)*40 - 20
 
 lGrad = np.array([[1, 1, 1]])
 lGradLim = np.array([[1, 1, 1]]) * 10**-1
 W_guess = np.array([[19, 5, 0]])
-a = 0.0000002
+a = 0.00002
 
 count = 0
 
