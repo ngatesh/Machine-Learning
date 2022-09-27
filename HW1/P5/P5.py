@@ -3,37 +3,54 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression, HuberRegressor
 from sklearn.model_selection import cross_val_score
-from sklearn.neighbors import LocalOutlierFactor
 
-with open('weather2006.csv') as file:
+# Import the weather data.
+with open('weather.csv') as file:
     reader = csv.reader(file, delimiter=',')
     data = np.array(list(reader))
 
+# Separate data into temperature and humidity.
 temp = np.array([data[:, 0].astype(float)]).T
 hum = np.array([data[:, 1].astype(float)]).T
 
-lof = LocalOutlierFactor()
+# Fit the data using a linear regression.
+model1 = LinearRegression().fit(hum, temp)  # type: LinearRegression
+model2 = HuberRegressor().fit(hum, temp)    # type: HuberRegressor
 
-#model = LinearRegression().fit(hum, temp)   # type: LinearRegression
-model = HuberRegressor(epsilon=1.5).fit(hum, temp) # type: HuberRegressor
-w0 = model.intercept_
-w1 = model.coef_[0]
+# Extract the linear coefficients.
+w0_1 = model1.intercept_
+w1_1 = model1.coef_[0]
+w0_2 = model2.intercept_
+w1_2 = model2.coef_[0]
 
-score = model.score(hum, temp)
+# Get the RMS Error rate for this fit.
+score1 = model1.score(hum, temp)
+score2 = model2.score(hum, temp)
 
 # 3-fold Cross Validation
-scores = cross_val_score(LinearRegression(), hum, temp, cv=3)
+scores1 = cross_val_score(LinearRegression(), hum, temp, cv=3)
+scores2 = cross_val_score(HuberRegressor(), hum, temp, cv=3)
 
-print(f"w0: {w0}\tw1:{w1}\tscore:{score}")
-print(scores)
-print(np.average(scores))
+# Print Statistics
+print(f"__Linear Regressor__\n\tw0= {w0_1}\tw1= {w1_1}\tscore= {score1}")
+print(f"\tCross Validation Scores: {scores1}")
+print(f"\tCV: average= {np.average(scores1)}, stdev= {np.std(scores1)}")
 
+print(f"__Huber Regressor__\n\tw0= {w0_2}\tw1= {w1_2}\tscore= {score2}")
+print(f"\tCross Validation Scores: {scores2}")
+print(f"\tCV: average= {np.average(scores2)}, stdev= {np.std(scores2)}")
+
+# Generate Prediction
 x = np.array([np.linspace(np.min(hum), np.max(hum), 50)]).T
-y = model.predict(x)
+y1 = model1.predict(x)
+y2 = model2.predict(x)
 
-plt.scatter(hum, temp, s=3)
-plt.plot(x, y, color="red")
+# Plot Prediction
+plt.scatter(hum, temp, s=3, color='teal')
+plt.plot(x, y1, color="red")
+plt.plot(x, y2, color="yellow")
 plt.xlabel("Humidity")
 plt.ylabel("Temperature [C]")
 plt.title("Temperature vs. Humidity")
+plt.legend(['Weather Data', 'Linear Regressor', 'Huber Regressor'])
 plt.show()

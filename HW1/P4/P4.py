@@ -72,10 +72,10 @@ def polyFit(deg, reg='none', ll=0.0001):
 
         w = w - alpha*grad                       # Update w
 
-    plt.scatter(x, z)
-    plt.scatter(x, w.dot(polyGen(x, deg)[0]))
-    plt.title(f"M={deg}")
-    plt.show()
+    # plt.scatter(x, z)
+    # plt.scatter(x, w.dot(polyGen(x, deg)[0]))
+    # plt.title(f"M={deg}")
+    # plt.show()
 
     # Calculate RMS error for training set.
     errorTrain = z_train - w.dot(X)
