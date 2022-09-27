@@ -4,6 +4,18 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression, HuberRegressor
 from sklearn.model_selection import cross_val_score
 
+# Author: Nathaniel Gatesh
+# Date: 26 September 2022
+
+"""
+Summary: Two regression types were used, and both gave essentially the same result (see PlotResult.png). The scores for
+each were 0.39, which is not particularly good, but understandable given the shape of the original data. The cross
+validation showed that both models behaved fairly consistently between each fold. A Huber regressor was tried to limit
+the influence of outliers in the dataset, but the result was little change. Learning rates were not adjusted because
+both models converged within a few seconds without adjustment. The final impression is that temperature is also
+dependent upon other variables besides humidity.
+"""
+
 # Import the weather data.
 with open('weather.csv') as file:
     reader = csv.reader(file, delimiter=',')
