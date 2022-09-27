@@ -3,7 +3,7 @@ import random
 import matplotlib.pyplot as plt
 
 # Author: Nathaniel Gatesh
-# Date: 25 September 2022
+# Date: 26 September 2022
 """
 Summary: After some experimentation, a learning rate of alpha=0.01 was found to work well; larger values resulted in
 overshooting. Without the use of regularization techniques, over fitting occurred after the 50th order polynomial fit
