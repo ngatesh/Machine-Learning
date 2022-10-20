@@ -1,0 +1,56 @@
+C:\Users\Nate\AppData\Local\Programs\Python\Python310\python.exe C:/Users/Nate/PycharmProjects/Machine-Learning/HW2/P5/P5.py 
+2022-10-19 22:46:19.913322: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2022-10-19 22:46:19.913457: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-10-19 22:46:22.606237: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2022-10-19 22:46:22.606347: W tensorflow/stream_executor/cuda/cuda_driver.cc:263] failed call to cuInit: UNKNOWN ERROR (303)
+2022-10-19 22:46:22.609781: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: DESKTOP-LD1D5M7
+2022-10-19 22:46:22.609934: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: DESKTOP-LD1D5M7
+2022-10-19 22:46:22.610284: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 62, 62, 32)        896       
+                                                                 
+ max_pooling2d (MaxPooling2D  (None, 31, 31, 32)       0         
+ )                                                               
+                                                                 
+ conv2d_1 (Conv2D)           (None, 29, 29, 32)        9248      
+                                                                 
+ max_pooling2d_1 (MaxPooling  (None, 14, 14, 32)       0         
+ 2D)                                                             
+                                                                 
+ conv2d_2 (Conv2D)           (None, 12, 12, 32)        9248      
+                                                                 
+ max_pooling2d_2 (MaxPooling  (None, 6, 6, 32)         0         
+ 2D)                                                             
+                                                                 
+ flatten (Flatten)           (None, 1152)              0         
+                                                                 
+ dense (Dense)               (None, 64)                73792     
+                                                                 
+ dense_1 (Dense)             (None, 2)                 130       
+                                                                 
+=================================================================
+Total params: 93,314
+Trainable params: 93,314
+Non-trainable params: 0
+_________________________________________________________________
+Found 20000 images belonging to 2 classes.
+Found 5000 images belonging to 2 classes.
+Epoch 1/10
+625/625 [==============================] - 177s 282ms/step - loss: 0.8531 - accuracy: 0.5472 - val_loss: 0.6672 - val_accuracy: 0.6376
+Epoch 2/10
+625/625 [==============================] - 53s 85ms/step - loss: 0.6431 - accuracy: 0.6109 - val_loss: 0.6319 - val_accuracy: 0.6404
+Epoch 3/10
+625/625 [==============================] - 52s 83ms/step - loss: 0.6187 - accuracy: 0.6469 - val_loss: 0.5922 - val_accuracy: 0.6737
+Epoch 4/10
+625/625 [==============================] - 52s 84ms/step - loss: 0.5943 - accuracy: 0.6762 - val_loss: 0.5891 - val_accuracy: 0.6855
+Epoch 5/10
+625/625 [==============================] - 52s 83ms/step - loss: 0.5729 - accuracy: 0.6976 - val_loss: 0.5650 - val_accuracy: 0.7081
+Epoch 6/10
+625/625 [==============================] - 52s 83ms/step - loss: 0.5326 - accuracy: 0.7311 - val_loss: 0.5249 - val_accuracy: 0.7426
+Epoch 7/10
+
+## There is something wrong with my computer and it kept crashing, and there's nothing I could do about it. This is the farthest I could get the program to run after trying many times. Although it did not complete, you can see that the validation accuracy was increasing to at least 75.26%

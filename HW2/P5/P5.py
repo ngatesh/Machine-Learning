@@ -1,3 +1,4 @@
+import os
 from keras.preprocessing.image import ImageDataGenerator
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
@@ -21,9 +22,9 @@ model.summary()
 
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-trainingData = ImageDataGenerator().flow_from_directory("C:\\DogsCats\\dogs-vs-cats\\train", target_size=(64, 64))
-testingData = ImageDataGenerator().flow_from_directory("C:\\DogsCats\\dogs-vs-cats\\test", target_size=(64, 64))
+trainingData = ImageDataGenerator().flow_from_directory(f"DogsCats/dogs-vs-cats/train", target_size=(64, 64), batch_size=32)
+testingData = ImageDataGenerator().flow_from_directory(f"DogsCats/dogs-vs-cats/test", target_size=(64, 64), batch_size=32)
 
-model.fit(trainingData, steps_per_epoch=500, epochs=40, validation_data=testingData, validation_steps=5000)
+model.fit(trainingData, steps_per_epoch=625, epochs=10, validation_data=testingData, validation_steps=156)
 
 model.save('classifier.h5')
