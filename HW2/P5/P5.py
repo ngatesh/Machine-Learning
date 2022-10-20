@@ -15,14 +15,15 @@ model.add(MaxPooling2D(pool_size=(2, 2)))
 
 model.add(Flatten())
 model.add(Dense(64, activation="relu"))
-model.add(Dense(1, activation="sigmoid"))
+model.add(Dense(2, activation="softmax"))
 
 model.summary()
 
-model.compile(optimizer='adam', loss='binary_crossentropy')
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-trainingData = ImageDataGenerator().flow_from_directory("D:\\DogsCats\\dogs-vs-cats\\train", target_size=(64, 64))
-testingData = ImageDataGenerator().flow_from_directory("D:\\DogsCats\\dogs-vs-cats\\test", target_size=(64, 64))
+trainingData = ImageDataGenerator().flow_from_directory("C:\\DogsCats\\dogs-vs-cats\\train", target_size=(64, 64))
+testingData = ImageDataGenerator().flow_from_directory("C:\\DogsCats\\dogs-vs-cats\\test", target_size=(64, 64))
 
-model.fit(trainingData, steps_per_epoch=500, epochs=1, validation_data=testingData, validation_steps=500)
+model.fit(trainingData, steps_per_epoch=500, epochs=40, validation_data=testingData, validation_steps=5000)
 
+model.save('classifier.h5')
