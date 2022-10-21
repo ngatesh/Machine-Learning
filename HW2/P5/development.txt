@@ -1,0 +1,6 @@
+1) Neural Net
+2) Added Dropout
+3) Added Extra 32 Dense Layer
+4) Reduced Dense layer from 64 to 32
+5) Two Convolutional Layers
+6) 128 Pixels

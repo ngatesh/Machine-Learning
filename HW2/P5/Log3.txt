@@ -1,0 +1,69 @@
+C:\Users\Nate\AppData\Local\Programs\Python\Python310\python.exe C:/Users/Nate/PycharmProjects/Machine-Learning/HW2/P5/P5.py
+2022-10-20 16:14:24.428132: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2022-10-20 16:14:24.428282: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-10-20 16:14:27.748342: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2022-10-20 16:14:27.748496: W tensorflow/stream_executor/cuda/cuda_driver.cc:263] failed call to cuInit: UNKNOWN ERROR (303)
+2022-10-20 16:14:27.752851: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: DESKTOP-LD1D5M7
+2022-10-20 16:14:27.753119: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: DESKTOP-LD1D5M7
+2022-10-20 16:14:27.753539: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ conv2d (Conv2D)             (None, 62, 62, 32)        896
+
+ max_pooling2d (MaxPooling2D  (None, 31, 31, 32)       0
+ )
+
+ dropout (Dropout)           (None, 31, 31, 32)        0
+
+ conv2d_1 (Conv2D)           (None, 29, 29, 32)        9248
+
+ max_pooling2d_1 (MaxPooling  (None, 14, 14, 32)       0
+ 2D)
+
+ dropout_1 (Dropout)         (None, 14, 14, 32)        0
+
+ conv2d_2 (Conv2D)           (None, 12, 12, 32)        9248
+
+ max_pooling2d_2 (MaxPooling  (None, 6, 6, 32)         0
+ 2D)
+
+ dropout_2 (Dropout)         (None, 6, 6, 32)          0
+
+ flatten (Flatten)           (None, 1152)              0
+
+ dense (Dense)               (None, 64)                73792
+
+ dense_1 (Dense)             (None, 32)                2080
+
+ dense_2 (Dense)             (None, 2)                 66
+
+=================================================================
+Total params: 95,330
+Trainable params: 95,330
+Non-trainable params: 0
+_________________________________________________________________
+Found 20000 images belonging to 2 classes.
+Found 5000 images belonging to 2 classes.
+Epoch 1/10
+625/625 [==============================] - 49s 77ms/step - loss: 0.6409 - accuracy: 0.6059 - val_loss: 0.5550 - val_accuracy: 0.7216
+Epoch 2/10
+625/625 [==============================] - 48s 77ms/step - loss: 0.5384 - accuracy: 0.7282 - val_loss: 0.5050 - val_accuracy: 0.7540
+Epoch 3/10
+625/625 [==============================] - 48s 77ms/step - loss: 0.4905 - accuracy: 0.7628 - val_loss: 0.4962 - val_accuracy: 0.7536
+Epoch 4/10
+625/625 [==============================] - 49s 78ms/step - loss: 0.4615 - accuracy: 0.7827 - val_loss: 0.4311 - val_accuracy: 0.7999
+Epoch 5/10
+625/625 [==============================] - 48s 77ms/step - loss: 0.4304 - accuracy: 0.7972 - val_loss: 0.4428 - val_accuracy: 0.7879
+Epoch 6/10
+625/625 [==============================] - 49s 78ms/step - loss: 0.4083 - accuracy: 0.8124 - val_loss: 0.4167 - val_accuracy: 0.8151
+Epoch 7/10
+625/625 [==============================] - 49s 78ms/step - loss: 0.3905 - accuracy: 0.8235 - val_loss: 0.3737 - val_accuracy: 0.8319
+Epoch 8/10
+625/625 [==============================] - 48s 78ms/step - loss: 0.3798 - accuracy: 0.8268 - val_loss: 0.3726 - val_accuracy: 0.8385
+Epoch 9/10
+625/625 [==============================] - 48s 77ms/step - loss: 0.3566 - accuracy: 0.8412 - val_loss: 0.3564 - val_accuracy: 0.8419
+Epoch 10/10
+625/625 [==============================] - 48s 77ms/step - loss: 0.3449 - accuracy: 0.8463 - val_loss: 0.3489 - val_accuracy: 0.8444

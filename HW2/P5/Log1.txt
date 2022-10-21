@@ -1,0 +1,63 @@
+C:\Users\Nate\AppData\Local\Programs\Python\Python310\python.exe C:/Users/Nate/PycharmProjects/Machine-Learning/HW2/P5/P5.py
+2022-10-20 15:49:26.405842: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2022-10-20 15:49:26.405972: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-10-20 15:49:29.852138: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2022-10-20 15:49:29.852252: W tensorflow/stream_executor/cuda/cuda_driver.cc:263] failed call to cuInit: UNKNOWN ERROR (303)
+2022-10-20 15:49:29.855623: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: DESKTOP-LD1D5M7
+2022-10-20 15:49:29.855772: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: DESKTOP-LD1D5M7
+2022-10-20 15:49:29.856095: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ conv2d (Conv2D)             (None, 62, 62, 32)        896
+
+ max_pooling2d (MaxPooling2D  (None, 31, 31, 32)       0
+ )
+
+ conv2d_1 (Conv2D)           (None, 29, 29, 32)        9248
+
+ max_pooling2d_1 (MaxPooling  (None, 14, 14, 32)       0
+ 2D)
+
+ conv2d_2 (Conv2D)           (None, 12, 12, 32)        9248
+
+ max_pooling2d_2 (MaxPooling  (None, 6, 6, 32)         0
+ 2D)
+
+ flatten (Flatten)           (None, 1152)              0
+
+ dense (Dense)               (None, 64)                73792
+
+ dense_1 (Dense)             (None, 2)                 130
+
+=================================================================
+Total params: 93,314
+Trainable params: 93,314
+Non-trainable params: 0
+_________________________________________________________________
+Found 20000 images belonging to 2 classes.
+Found 5000 images belonging to 2 classes.
+Epoch 1/10
+625/625 [==============================] - 47s 75ms/step - loss: 0.6006 - accuracy: 0.6641 - val_loss: 0.5401 - val_accuracy: 0.7224
+Epoch 2/10
+625/625 [==============================] - 46s 74ms/step - loss: 0.4878 - accuracy: 0.7661 - val_loss: 0.4563 - val_accuracy: 0.7766
+Epoch 3/10
+625/625 [==============================] - 46s 74ms/step - loss: 0.4308 - accuracy: 0.8026 - val_loss: 0.4322 - val_accuracy: 0.8027
+Epoch 4/10
+625/625 [==============================] - 46s 74ms/step - loss: 0.3979 - accuracy: 0.8197 - val_loss: 0.4039 - val_accuracy: 0.8165
+Epoch 5/10
+625/625 [==============================] - 46s 74ms/step - loss: 0.3572 - accuracy: 0.8409 - val_loss: 0.4207 - val_accuracy: 0.8057
+Epoch 6/10
+625/625 [==============================] - 46s 74ms/step - loss: 0.3299 - accuracy: 0.8543 - val_loss: 0.3769 - val_accuracy: 0.8317
+Epoch 7/10
+625/625 [==============================] - 46s 74ms/step - loss: 0.3044 - accuracy: 0.8675 - val_loss: 0.3791 - val_accuracy: 0.8367
+Epoch 8/10
+625/625 [==============================] - 46s 74ms/step - loss: 0.2710 - accuracy: 0.8829 - val_loss: 0.3671 - val_accuracy: 0.8419
+Epoch 9/10
+625/625 [==============================] - 46s 74ms/step - loss: 0.2460 - accuracy: 0.8971 - val_loss: 0.3740 - val_accuracy: 0.8488
+Epoch 10/10
+625/625 [==============================] - 46s 74ms/step - loss: 0.2189 - accuracy: 0.9065 - val_loss: 0.4053 - val_accuracy: 0.8405
+
+Process finished with exit code 0
