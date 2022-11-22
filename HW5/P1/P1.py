@@ -18,7 +18,7 @@ errors = np.zeros(49)
 for i in k:
     # Cross validation
     cv = RepeatedStratifiedKFold(n_splits=5, n_repeats=8, random_state=7)
-    # Regressor model
+    # Classifier model
     knn = KNeighborsClassifier(n_neighbors=i)
 
     # Score the model with cross validation
