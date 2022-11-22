@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import RepeatedStratifiedKFold, cross_val_score
 from sklearn.neighbors import KNeighborsClassifier
 
-# P1 - K Nearest Neighbor
+# P1: K-Nearest-Neighbor
 
 # Load Data
 dataset = np.loadtxt("seeds_dataset.txt", delimiter="\t", dtype=float)
