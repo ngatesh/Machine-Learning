@@ -30,7 +30,7 @@ for i in k:
 
     errors[i-1] = np.average(n_scores)
 
-plt.scatter(k, errors)
+plt.plot(k, errors)
 plt.title("KNN - Accuracy vs. Number of Neighbors")
 plt.xlabel('Neighbors')
 plt.ylabel('Accuracy')
